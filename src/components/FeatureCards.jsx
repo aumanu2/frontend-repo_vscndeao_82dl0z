@@ -4,12 +4,16 @@ const features = [
   {
     icon: CheckSquare,
     title: "Checklist Aset",
-    desc: "Checklist harian/mingguan dengan template, bukti foto, dan status real-time.",
+    desc: "Checklist terjadwal dengan template, bukti foto, dan status real-time.",
+    chipsLabel: "Periode",
+    chips: ["Harian", "Mingguan", "Bulanan", "2 Bulanan", "6 Bulanan", "Tahunan"],
   },
   {
     icon: Ticket,
     title: "Ticketing",
     desc: "Kelola tiket gangguan: prioritas, SLA, assignment, dan histori penanganan.",
+    chipsLabel: "Status",
+    chips: ["Open", "Progress", "Done", "Close"],
   },
   {
     icon: UserCheck,
@@ -43,12 +47,35 @@ export default function FeatureCards() {
         </div>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f, idx) => (
-            <div key={idx} className="group rounded-2xl border border-white/30 bg-white/70 p-6 backdrop-blur shadow-sm hover:shadow-md transition shadow-blue-500/5">
+            <div
+              key={idx}
+              className="group rounded-2xl border border-white/30 bg-white/70 p-6 backdrop-blur shadow-sm hover:shadow-md transition shadow-blue-500/5"
+            >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-600/20">
                 <f.icon className="h-6 w-6" />
               </div>
               <h3 className="mt-4 text-lg font-semibold text-gray-900">{f.title}</h3>
               <p className="mt-2 text-sm text-gray-600">{f.desc}</p>
+
+              {Array.isArray(f.chips) && f.chips.length > 0 && (
+                <div className="mt-4">
+                  {f.chipsLabel && (
+                    <div className="mb-2 text-xs font-medium uppercase tracking-wide text-gray-500">
+                      {f.chipsLabel}
+                    </div>
+                  )}
+                  <div className="flex flex-wrap gap-2">
+                    {f.chips.map((chip) => (
+                      <span
+                        key={chip}
+                        className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700"
+                      >
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>
