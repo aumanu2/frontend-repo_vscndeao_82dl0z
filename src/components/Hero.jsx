@@ -15,8 +15,12 @@ export default function Hero() {
               <span className="h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
               Aplikasi modern untuk aset operasional
             </span>
-            <h1 className="mt-5 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Checklist, Ticketing, dan Absensi dalam satu platform
+            <h1 className="mt-5 inline-block text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl relative px-3 py-2">
+              <span className="relative z-10">Checklist, Ticketing, dan Absensi dalam satu platform</span>
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-0 -z-10 rounded-2xl opacity-25 bg-[url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=1400&q=60')] bg-cover bg-center"
+              />
             </h1>
             <p className="mt-5 max-w-xl text-base leading-7 text-gray-600">
               Kelola perangkat aset Anda dengan mudah: buat checklist harian, tangani tiket perbaikan, dan catat kehadiran teknisi—semua terintegrasi mulus.
